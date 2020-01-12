@@ -1,0 +1,24 @@
+<assembly>
+    <id>dir</id>
+    <formats>
+        <format>dir</format><!-- 设置打包后的格式为dir -->
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets><!-- 要打包的文件 -->
+        <fileSet><!-- bin目录下的所有文件（批处理文件） -->
+            <directory>${project.basedir}/bin</directory>
+            <outputDirectory>/bin</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>/classes</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <dependencySets> <!-- 打包的依赖jar, 放置在lib下 -->
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+            <useProjectArtifact>false</useProjectArtifact>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+</assembly>
